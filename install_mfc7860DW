@@ -1,0 +1,40 @@
+with browser connect to printer ip
+admin, access
+
+download driver install tool (for printer and scanner rather than just one of them)
+move to /opt/mfcprinter
+gunzip the file, this produces linux-brprinter-installer-2.2.1-1   (the gz file is replaced)
+
+run as su:
+
+Command: bash linux-brprinter-installer-*.*.*-* Brother machine name 
+
+
+
+bash linux-brprinter-installer-2.2.1-1 MFC-7860DW
+confirm the driver list
+
+this downloads the driver and install them
+
+
+during the process
+-give the uri address for the printer (printer install)
+-give ip address of the scanner
+on the printer the network address is set statically to 111
+
+
+after the installation is complete, go to settings - printer and print a test page
+
+it can be that the printer is installed as usb printer
+in this case choose device uri - change
+in the menue choose network printer
+this opens a menue  
+there choose find printer and type in the ip address
+it comes up with a found message and a protocol suggest - confirm
+then print test page
+
+
+to scan install xsane
+when started thsi searches for the scanner and since it was installed with ip it finds the scanner right away.
+
+
