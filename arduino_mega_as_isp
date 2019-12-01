@@ -1,0 +1,52 @@
+using the mega as isp to program the attiny85
+
+1. install board configuration
+https://create.arduino.cc/projecthub/arjun/programming-attiny85-with-arduino-uno-afb829
+arduino 1.68 has board manager (preferences)
+https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json
+choose the tiny (or other relevant boards for different targets)
+then restart
+
+2. prepare arduino as programmer
+under examples load the program for arduinoISP
+transfer to mega
+
+3. electronics - board connections
+use spi interface to transfer code, on mega use the icsp connector
+some sites mention to put a 10us capacitor between gnd and reset to ovoid a reset after the serial communication has been completed
+other mention to put a capcitor between 5v and reset.
+others mention to put a resistor between 5v and reset.
+I used a 147ohm resistor which made it work, other solutions didn't but it could also be because of board settings
+
+the mega offeres an icsp connector : https://www.arduino.cc/en/reference/SPI
+on mega use spi connector: icsp pin, function, mega chip pin
+1,2	miso,vcc	50,various
+3,4	sck,mosi	52,51
+5,6	reset,gnd	??,various
+since we need the slave select pin, it was better to connect directly
+50: miso		-> pb1, pin6, miso
+51: mosi		-> pb0, pin5, mosi	
+52: sck			-> pb2, pin7, sck
+52: ss			-> reset, pin1
+VCC and GND		-> vcc pin8 and gnd pin4
+
+tiny pin,function
+4,gnd,gnd
+5,0,mosi
+6,1,miso
+7,2,clk
+8,vcc,vcc
+
+3. prepare arduino to program the tiny
+under tools:
+board: Atiny
+processor:tiny85
+clock: 1MHZ
+programmer: arduino as isp   (NOT: arduinoISP)
+if different frequency than standard 1MHZ -> burn bootloader
+
+4. programming, compilation
+load blink, set the output pin to tiny pin0, compile
+
+5. transfer to attiny
+sketch-> upload using programmer
