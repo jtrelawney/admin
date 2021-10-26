@@ -1,0 +1,23 @@
+download sloeber, unpack and place it
+start sloeber and configure the arduino board
+one of the items is the port name
+it should be something like /dev/ttyusb0 or similar depending on where the usb cable is connected
+
+important: connect the arduino to the usb port 
+lsusb shows:
+Future Technology Devices International, Ltd FT232 USB-Serial (UART) IC
+
+very likely the dropdown menue is empty and in the serial monitor the configuration doesn't show a usb port either
+
+
+https://askubuntu.com/questions/112568/how-do-i-allow-a-non-default-user-to-use-serial-device-ttyusb0
+
+the issue is that usb ports are in the dialout group and hence the current user needs to bee added:
+sudo adduser this_user dialout
+
+Now logout and logon start sloeber again
+under project preferences the port is now availble in the dropdown
+
+and in the serialmonitor add the port to the monitor
+
+
