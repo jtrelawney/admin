@@ -18,8 +18,8 @@ this downloads the driver and install them
 
 
 during the process
--give the uri address for the printer (printer install)
--give ip address of the scanner
+-will you give the uri address for the printer (printer install) - Y
+-choose 13 = give ip address of the scanner it is 111
 on the printer the network address is set statically to 111
 
 
