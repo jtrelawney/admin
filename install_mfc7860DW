@@ -35,7 +35,9 @@ then print test page
 
 
 to scan install xsane
-when started thsi searches for the scanner and since it was installed with ip it finds the scanner right away.
+when started thsi searches for the scanner and since it was installed with ip it finds the scanner right away and scans fine.
+
+Issues:
 
 if it fails with a message such as "failed to start scanner - invalid argument", then delete the xsane config file
 rm -rf ~/.sane/xsane
