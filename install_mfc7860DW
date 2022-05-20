@@ -1,20 +1,19 @@
 with browser connect to printer ip
 admin, access
 
-download driver install tool (for printer and scanner rather than just one of them)
+from brother website: download driver install tool (for printer and scanner rather than just one of them)
 move to /opt/mfcprinter
 gunzip the file, this produces linux-brprinter-installer-2.2.1-1   (the gz file is replaced)
 
 run as su:
 
 Command: bash linux-brprinter-installer-*.*.*-* Brother machine name 
-
-
-
 bash linux-brprinter-installer-2.2.1-1 MFC-7860DW
+if machine name is not given it will ask for it
+
 confirm the driver list
 
-this downloads the driver and install them
+this downloads all drivers and installs them
 
 
 during the process
