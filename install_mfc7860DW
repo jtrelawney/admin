@@ -24,6 +24,8 @@ on the printer the network address is set statically to 111
 
 after the installation is complete, go to settings - printer and print a test page
 
+===========================================================================================
+
 it can be that the printer is installed as usb printer
 in this case choose device uri - change
 in the menue choose network printer
@@ -32,6 +34,7 @@ there choose find printer and type in the ip address
 it comes up with a found message and a protocol suggest - confirm
 then print test page
 
+===========================================================================================
 
 to scan install xsane
 when started thsi searches for the scanner and since it was installed with ip it finds the scanner right away and scans fine.
