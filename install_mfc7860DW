@@ -1,6 +1,8 @@
 with browser connect to printer ip
 admin, access
 
+for error handling see the bottom of the page (eg. failed to start scanner - invalid argument)
+
 from brother website: download driver install tool (for printer and scanner rather than just one of them)
 move to /opt/mfcprinter
 gunzip the file, this produces linux-brprinter-installer-2.2.1-1   (the gz file is replaced)
