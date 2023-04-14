@@ -1,7 +1,20 @@
+new brother mfc l2715DW
+
+===========================================================================================
+
+1. remove all existing drivers - see below
+2. physically connect the printer - follow quick install manual, set the network address to 111
+3. install the printer drivers as per instructions below, however:
+there questions might be slighlty different, but they are essentially the same
+the option 13 to set the network ip is no 15.
+
+===========================================================================================
+
 with browser connect to printer ip
 admin, access
 
 for error handling see the bottom of the page (eg. failed to start scanner - invalid argument)
+===========================================================================================
 
 from brother website: download driver install tool (for printer and scanner rather than just one of them)
 move to /opt/mfcprinter
@@ -47,4 +60,28 @@ if it fails with a message such as "failed to start scanner - invalid argument",
 rm -rf ~/.sane/xsane
 sometimes this is messed up from previous config attempts. Not even uninstall and install worked in that case, but deleting the file did.
 
+===========================================================================================
+to purge the system from existing drivers (when buying a new printer model)
+
+dpkg -l | grep Brother
+lists all brother drivers (printer scanner etc)
+
+
+ii  brscan-skey                                0.3.1-2                                 amd64        Brother Linux scanner S-KEY tool
+ii  brscan4                                    0.4.11-1                                amd64        Brother Scanner Driver
+ii  cupswrappermfc7860dw:i386                  2.0.4-2                                 i386         Brother MFC7860DW CUPS wrapper driver
+ii  mfc7860dwlpr:i386                          2.1.0-1                                 i386         Brother MFC-7860DW LPR driver
+ii  printer-driver-brlaser                     6-3                                     amd64        printer driver for (some) Brother laser printers
+ii  printer-driver-ptouch                      1.6-2build1                             amd64        printer driver Brother P-touch label printers
+
+remove one by one with
+ 2002  sudo dpkg -P brscan4
+ 2004  sudo dpkg -P brscan-skey
+ 2006  sudo dpkg -P cupswrappermfc7860dw 
+ 2007  sudo dpkg -P mfc7860dwlpr 
+ 2008  sudo dpkg -P printer-driver-brlaser 
+ 2009  sudo dpkg -P printer-driver-ptouch
+ 
+dpkg -l | grep Brother
+is now empty
 
